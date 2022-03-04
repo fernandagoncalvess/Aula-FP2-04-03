@@ -5,6 +5,7 @@
 package br.edu.ifsp.pep.dao;
 
 import br.edu.ifsp.pep.model.Pessoa;
+import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -14,7 +15,7 @@ import javax.persistence.PersistenceContext;
  * @author aluno
  */
 @Stateless
-//serveTimezone=UTC&amp;
+//serverTimezone=UTC&amp;
 
 public class PessoaDAO {
     
@@ -24,6 +25,9 @@ public class PessoaDAO {
 
     public void inserir(Pessoa pessoa) {
         em.persist(pessoa);
+    }
+    public List<Pessoa> buscarTodos() {
+        return em.createQuery("Select p FROM Pessoa p", Pessoa.class).getResultList();
     }
 
 

@@ -97,4 +97,10 @@ public void adicionar() {
         this.pessoaSelecionada = pessoaSelecionada;
     }
 
+    public List<Pessoa> getPessoas() {
+
+        System.out.println("Carregando...");
+        return pessoaDAO.buscarTodos();
+
+    }
 }
